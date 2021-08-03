@@ -1,35 +1,56 @@
-const cookieName = 'Archermind'
-const cookieKey = 'jabin_cookie_am'
-const chavy = init()
-chavy.log(`[${cookieName}] 重写生效 ${chavy.isRequest ? 'true' : 'false'} `)
-const cookieVal = $request.headers['Cookie']
-if (cookieVal) {
-  var saved = chavy.read(cookieKey)
-  chavy.log(`[${cookieName}] 开始获取Cookie savedCookie: ${saved} cookie:${cookieVal}`)
-  if (saved != cookieVal && chavy.write(cookieVal, cookieKey)) {
-    chavy.msg(`${cookieName}`, '获取Cookie: 成功', '')
-    chavy.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
-  }else{
-   chavy.msg(`${cookieName}`, '获取Cookie:已包含', '')
-   chavy.log(`[${cookieName}] 获取Cookie:已包含, cookie: ${cookieVal}`) 
-  }
+const $nobyda = nobyda();
+
+if ($nobyda.isRequest) {
+  GetCookie()
+} else {
+  checkin()
 }
-function init() {
-  const isRequest = typeof $request != "undefined"
-  
-  read = (key) => {
-    return $prefs.valueForKey(key)
-  }
-  write = (key, val) => {
-    return $prefs.setValueForKey(key, val)
-  }
-  msg = (title, subtitle, body) => {
-    $notify(title, subtitle, body)
-  }
-  log = (message) => console.log(message)
-  done = (value = {}) => {
-    $done(value)
-  }
-  return {msg, log, read, write, done }
+
+function checkin() {
+  console.log("----- test checkin: \n")
 }
-chavy.done()
+
+function GetCookie() {
+    console.log("----- test GetCookie: \n")
+  var CookieName = "B站漫画";
+  var CookieKey = "CookieBM";
+  var regex = /SESSDATA=.+?;/;
+  if ($request.headers) {
+    var header = $request.headers['Cookie'] ? $request.headers['Cookie'] : "";
+    }
+  $nobyda.end()
+}
+
+function nobyda() {
+    const isRequest = typeof $request != "undefined"
+    const isSurge = typeof $httpClient != "undefined"
+    const isQuanX = typeof $task != "undefined"
+    const notify = (title, subtitle, message) => {
+        if (isQuanX) $notify(title, subtitle, message)
+        if (isSurge) $notification.post(title, subtitle, message)
+    }
+    const write = (value, key) => {
+        if (isQuanX) return $prefs.setValueForKey(value, key)
+        if (isSurge) return $persistentStore.write(value, key)
+    }
+    const read = (key) => {
+        if (isQuanX) return $prefs.valueForKey(key)
+        if (isSurge) return $persistentStore.read(key)
+    }
+    const post = (options, callback) => {
+        if (isQuanX) {
+            if (typeof options == "string") options = { url: options }
+            options["method"] = "POST"
+            $task.fetch(options).then(response => {
+                response["status"] = response.statusCode
+                callback(null, response, response.body)
+            }, reason => callback(reason.error, null, null))
+        }
+        if (isSurge) $httpClient.post(options, callback)
+    }
+    const end = () => {
+        if (isQuanX) return $done({})
+        if (isSurge) isRequest ? $done({}) : $done()
+    }
+    return { isRequest, isQuanX, isSurge, notify, write, read, post, end }
+};

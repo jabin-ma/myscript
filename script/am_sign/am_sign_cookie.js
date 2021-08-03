@@ -1,15 +1,15 @@
+const CookieName = "自动打卡";
 const $nobyda = nobyda();
 
+console.log(`[${CookieName}] 开始获取cookie ${$request.url}\n`)
 if (!$nobyda.isResponse) {
   GetCookie($request,'Cookie')
 } else {
   GetCookie($response,'Set-Cookie')
+
 }
 
-
 function GetCookie(context,headerName) {
-  var CookieName = "自动打卡";
-  console.log(`[${CookieName}] GetCookie using ${headerName} \n`)
   var CookieKey = "jabin_cookie_am";
   if (context.headers) {
     var CookieValue = context.headers[headerName] ? context.headers[headerName] : "NULL";
@@ -18,26 +18,26 @@ function GetCookie(context,headerName) {
         if ($nobyda.read(CookieKey) != CookieValue) {
           var cookie = $nobyda.write(CookieValue, CookieKey);
           if (!cookie) {
-            $nobyda.notify("更新" + CookieName + "Cookie失败‼️", "", "");
+            $nobyda.notify("更新" + headerName + "Cookie失败‼️", "", "");
           } else {
-            $nobyda.notify("更新" + CookieName + "Cookie成功 🎉", "", "");
+            $nobyda.notify("更新" + headerName + "Cookie成功 🎉", "", "");
           }
         }
       } else {
         var cookie = $nobyda.write(CookieValue, CookieKey);
         if (!cookie) {
-          $nobyda.notify("首次写入" + CookieName + "Cookie失败‼️", "", "");
+          $nobyda.notify("首次写入" + headerName + "Cookie失败‼️", "", "");
         } else {
-          $nobyda.notify("首次写入" + CookieName + "Cookie成功 🎉", "", "");
+          $nobyda.notify("首次写入" + headerName + "Cookie成功 🎉", "", "");
         }
       }
     } else {
       if (headerName != 'Cookie'){
-      $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "Cookie关键值缺失");
+         $nobyda.notify("写入" + headerName + "Cookie失败‼️", "", "Cookie关键值缺失");
       }
     }
   } else {
-      $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
+      $nobyda.notify("写入" + headerName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
   }
   $nobyda.end()
 }
@@ -62,5 +62,6 @@ function nobyda() {
         if (isQuanX) return $done({})
         if (isSurge) isResponse ? $done() : $done({}) 
     }
+
     return { isResponse, isQuanX, isSurge, notify, write, read, end }
 };

@@ -8,7 +8,7 @@ if ($nobyda.isRequest) {
 
 
 function GetCookieFromRequest(context,headerName) {
-  console.log("----- test GetCookieFromRequest: \n")
+  console.log(`----- test GetCookieFromRequest ${headerName} \n`)
   var CookieName = "自动打卡";
   var CookieKey = "jabin_cookie_am";
   if (context.headers) {

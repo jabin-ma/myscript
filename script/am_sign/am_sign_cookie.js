@@ -2,11 +2,11 @@ const cookieName = 'Archermind'
 const cookieKey = 'jabin_cookie_am'
 const chavy = init()
 chavy.log(`[${cookieName}] 重写生效`)
-const cookieVal = $request.headers['Cookie']
+const cookieVal = $request.headers['Cookie'] || $response.headers['Set-Cookie']
 if (cookieVal) {
-  var saved = getdata(cookieKey)
+  var saved = chavy.read(cookieKey)
   chavy.log(`[${cookieName}] 开始获取Cookie savedCookie: ${saved} cookie:${cookieVal}`)
-  if (saved != cookieVal && chavy.setdata(cookieVal, cookieKey)) {
+  if (saved != cookieVal && chavy.write(cookieVal, cookieKey)) {
     chavy.msg(`${cookieName}`, '获取Cookie: 成功', '')
     chavy.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
   }else{
@@ -15,46 +15,19 @@ if (cookieVal) {
   }
 }
 function init() {
-  isSurge = () => {
-    return undefined === this.$httpClient ? false : true
+  read = (key) => {
+    return $prefs.valueForKey(key)
   }
-  isQuanX = () => {
-    return undefined === this.$task ? false : true
-  }
-  getdata = (key) => {
-    if (isSurge()) return $persistentStore.read(key)
-    if (isQuanX()) return $prefs.valueForKey(key)
-  }
-  setdata = (key, val) => {
-    if (isSurge()) return $persistentStore.write(key, val)
-    if (isQuanX()) return $prefs.setValueForKey(key, val)
+  write = (key, val) => {
+    return $prefs.setValueForKey(key, val)
   }
   msg = (title, subtitle, body) => {
-    if (isSurge()) $notification.post(title, subtitle, body)
-    if (isQuanX()) $notify(title, subtitle, body)
+    $notify(title, subtitle, body)
   }
   log = (message) => console.log(message)
-  get = (url, cb) => {
-    if (isSurge()) {
-      $httpClient.get(url, cb)
-    }
-    if (isQuanX()) {
-      url.method = 'GET'
-      $task.fetch(url).then((resp) => cb(null, {}, resp.body))
-    }
-  }
-  post = (url, cb) => {
-    if (isSurge()) {
-      $httpClient.post(url, cb)
-    }
-    if (isQuanX()) {
-      url.method = 'POST'
-      $task.fetch(url).then((resp) => cb(null, {}, resp.body))
-    }
-  }
   done = (value = {}) => {
     $done(value)
   }
-  return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
+  return {msg, log, read, write, done }
 }
 chavy.done()

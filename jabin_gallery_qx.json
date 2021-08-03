@@ -2,7 +2,14 @@
   "name": "Jabin的脚本",
   "description": "自用Gallery订阅",
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
-  "task": [{"config":"2 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
-    "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=cookie获取"},{"config":"3 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js, tag=b站银瓜子转硬币, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
-    "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"}]
+  "task": [
+    {
+      "config": "2 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=cookie获取"
+    },
+    {
+      "config": "3 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js, tag=b站银瓜子转硬币, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"
+    }
+  ]
 }

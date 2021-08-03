@@ -1,11 +1,10 @@
-const cookieName = 'jabin_am_cookie'
-const cookieKey = 'chavy_cookie_bilibili'
+const cookieKey = 'jabin_cookie_am'
 const chavy = init()
 
-if ($request) {
     chavy.log(`request: ${request}`)
-}
+
 function init() {
+
   isSurge = () => {
     return undefined === this.$httpClient ? false : true
   }

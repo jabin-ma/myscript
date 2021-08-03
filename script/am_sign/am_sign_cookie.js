@@ -62,5 +62,5 @@ function nobyda() {
         if (isQuanX) return $done({})
         if (isSurge) isRequest ? $done({}) : $done()
     }
-    return { isRequest, isQuanX, isSurge, notify, write, read, post, end }
+    return { isRequest, isQuanX, isSurge, notify, write, read, end }
 };

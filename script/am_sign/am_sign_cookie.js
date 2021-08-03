@@ -1,9 +1,11 @@
 const cookieName = 'Archermind'
 const cookieKey = 'jabin_cookie_am'
 const chavy = init()
+chavy.log(`[${cookieName}] 重写生效`)
 const cookieVal = $request.headers['Cookie']
 if (cookieVal) {
   var saved = getdata(cookieKey)
+  chavy.log(`[${cookieName}] 开始获取Cookie savedCookie: ${saved} cookie:${cookieVal}`)
   if (saved != cookieVal && chavy.setdata(cookieVal, cookieKey)) {
     chavy.msg(`${cookieName}`, '获取Cookie: 成功', '')
     chavy.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)

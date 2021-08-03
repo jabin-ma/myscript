@@ -1,18 +1,18 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  GetCookieFromRequest($request)
+  GetCookieFromRequest($request,'Cookie')
 } else {
-  GetCookieFromResp($response)
+  GetCookieFromRequest($response,'Set-Cookie')
 }
 
 
-function GetCookieFromRequest(context) {
+function GetCookieFromRequest(context,headerName) {
   console.log("----- test GetCookieFromRequest: \n")
   var CookieName = "自动打卡";
   var CookieKey = "jabin_cookie_am";
   if (context.headers) {
-    var CookieValue = context.headers['Cookie'] ? context.headers['Cookie'] : "NULL";
+    var CookieValue = context.headers[headerName] ? context.headers[headerName] : "NULL";
     if (CookieValue != "NULL") {
       if ($nobyda.read(CookieKey)) {
         if ($nobyda.read(CookieKey) != CookieValue) {

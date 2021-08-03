@@ -1,15 +1,15 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  GetCookieFromRequest($request,'Cookie')
+  GetCookie($request,'Cookie')
 } else {
-  GetCookieFromRequest($response,'Set-Cookie')
+  GetCookie($response,'Set-Cookie')
 }
 
 
-function GetCookieFromRequest(context,headerName) {
-  console.log(`----- test GetCookieFromRequest ${headerName} \n`)
+function GetCookie(context,headerName) {
   var CookieName = "自动打卡";
+  console.log(`[${CookieName}] GetCookie using ${headerName} \n`)
   var CookieKey = "jabin_cookie_am";
   if (context.headers) {
     var CookieValue = context.headers[headerName] ? context.headers[headerName] : "NULL";
@@ -32,15 +32,15 @@ function GetCookieFromRequest(context,headerName) {
         }
       }
     } else {
+      if (headerName != 'Cookie'){
       $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "Cookie关键值缺失");
+      }
     }
   } else {
-    $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
+      $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
   }
   $nobyda.end()
 }
-
-
 
 function nobyda() {
     const isRequest = typeof $request != "undefined"

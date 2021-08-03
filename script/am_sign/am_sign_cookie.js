@@ -1,25 +1,46 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  GetCookie()
+  GetCookieFromRequest()
 } else {
-  checkin()
+  GetCookieFromResp()
 }
 
-function checkin() {
-  console.log("----- test checkin: \n")
-}
 
-function GetCookie() {
-    console.log("----- test GetCookie: \n")
-  var CookieName = "B站漫画";
-  var CookieKey = "CookieBM";
-  var regex = /SESSDATA=.+?;/;
-  if ($request.headers) {
-    var header = $request.headers['Cookie'] ? $request.headers['Cookie'] : "";
+function GetCookieFromRequest(context) {
+  console.log("----- test GetCookieFromRequest: \n")
+  var CookieName = "自动打卡";
+  var CookieKey = "jabin_cookie_am";
+  if (context.headers) {
+    var CookieValue = context.headers['Cookie'] ? context.headers['Cookie'] : "NULL";
+    if (CookieValue != "NULL") {
+      if ($nobyda.read(CookieKey)) {
+        if ($nobyda.read(CookieKey) != CookieValue) {
+          var cookie = $nobyda.write(CookieValue, CookieKey);
+          if (!cookie) {
+            $nobyda.notify("更新" + CookieName + "Cookie失败‼️", "", "");
+          } else {
+            $nobyda.notify("更新" + CookieName + "Cookie成功 🎉", "", "");
+          }
+        }
+      } else {
+        var cookie = $nobyda.write(CookieValue, CookieKey);
+        if (!cookie) {
+          $nobyda.notify("首次写入" + CookieName + "Cookie失败‼️", "", "");
+        } else {
+          $nobyda.notify("首次写入" + CookieName + "Cookie成功 🎉", "", "");
+        }
+      }
+    } else {
+      $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "Cookie关键值缺失");
     }
+  } else {
+    $nobyda.notify("写入" + CookieName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
+  }
   $nobyda.end()
 }
+
+
 
 function nobyda() {
     const isRequest = typeof $request != "undefined"
@@ -36,17 +57,6 @@ function nobyda() {
     const read = (key) => {
         if (isQuanX) return $prefs.valueForKey(key)
         if (isSurge) return $persistentStore.read(key)
-    }
-    const post = (options, callback) => {
-        if (isQuanX) {
-            if (typeof options == "string") options = { url: options }
-            options["method"] = "POST"
-            $task.fetch(options).then(response => {
-                response["status"] = response.statusCode
-                callback(null, response, response.body)
-            }, reason => callback(reason.error, null, null))
-        }
-        if (isSurge) $httpClient.post(options, callback)
     }
     const end = () => {
         if (isQuanX) return $done({})

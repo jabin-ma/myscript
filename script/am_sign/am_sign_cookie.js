@@ -1,10 +1,16 @@
-const cookieName = 'bilibili'
+const cookieName = 'Archermind'
+const cookieKey = 'jabin_cookie_am'
 const chavy = init()
 const cookieVal = $request.headers['Cookie']
 if (cookieVal) {
+  var saved = getdata(cookieKey)
+  if (saved != cookieVal && chavy.setdata(cookieVal, cookieKey)) {
     chavy.msg(`${cookieName}`, '获取Cookie: 成功', '')
     chavy.log(`[${cookieName}] 获取Cookie: 成功, cookie: ${cookieVal}`)
-
+  }else{
+   chavy.msg(`${cookieName}`, '获取Cookie:已包含', '')
+   chavy.log(`[${cookieName}] 获取Cookie:已包含, cookie: ${cookieVal}`) 
+  }
 }
 function init() {
   isSurge = () => {

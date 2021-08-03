@@ -2,9 +2,11 @@
  * @fileoverview Template to compose HTTP reqeuest.
  * 
  */
-
+const jabin = init()
 const url = `https://wxq.am.com/kaoqin/doSign`;
 const method = `POST`;
+const cookie = jabin.read('jabin_cookie_am')
+
 const headers = {
 'X-Requested-With' : `XMLHttpRequest`,
 'Connection' : `keep-alive`,
@@ -12,9 +14,9 @@ const headers = {
 'Content-Type' : `application/x-www-form-urlencoded; charset=UTF-8`,
 'Origin' : `https://wxq.archermind.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.9(0x1800092c) NetType/4G Language/zh_CN`,
-'Cookie' : `JSESSIONID= 4446B066C54972C0BAB4606A8DCDAC34 `,
-'Host' : `wxq.am.com`,
-'Referer' : `https://wxq.am.com/kaoqin/signz`,
+'Cookie' : `${cookie}`,
+'Host' : `wxq.archermind.com`,
+'Referer' : `https://wxq.archermind.com/kaoqin/signz`,
 'Accept-Language' : `zh-cn`,
 'Accept' : `application/json, text/javascript, */*; q=0.01`
 };
@@ -27,6 +29,7 @@ const myRequest = {
     body: body
 };
 
+if(cookie){
 $task.fetch(myRequest).then(response => {
     console.log(response.statusCode + "\n\n" + response.body);
     $done();
@@ -34,3 +37,26 @@ $task.fetch(myRequest).then(response => {
     console.log(reason.error);
     $done();
 });
+}else{
+	$notify('自动打卡','打卡失败','cookie未找到')
+}
+
+
+
+function init() {
+  read = (key) => {
+    return $prefs.valueForKey(key)
+  }
+  write = (key, val) => {
+    return $prefs.setValueForKey(key, val)
+  }
+  msg = (title, subtitle, body) => {
+    $notify(title, subtitle, body)
+  }
+  log = (message) => console.log(message)
+  done = (value = {}) => {
+    $done(value)
+  }
+  return {msg, log, read, write, done }
+}
+jabin.done()

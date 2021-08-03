@@ -1,7 +1,6 @@
 const $nobyda = nobyda();
 
-if ($nobyda.isRequest) {
-  console.log(`request url -> ${$request.url}  resp: ${$response ? $response.headers:'NULL'}`)
+if (!$nobyda.isResponse) {
   GetCookie($request,'Cookie')
 } else {
   GetCookie($response,'Set-Cookie')
@@ -44,7 +43,7 @@ function GetCookie(context,headerName) {
 }
 
 function nobyda() {
-    const isRequest = typeof $request != "undefined"
+    const isResponse = typeof $response != "undefined"
     const isSurge = typeof $httpClient != "undefined"
     const isQuanX = typeof $task != "undefined"
     const notify = (title, subtitle, message) => {
@@ -61,7 +60,7 @@ function nobyda() {
     }
     const end = () => {
         if (isQuanX) return $done({})
-        if (isSurge) isRequest ? $done({}) : $done()
+        if (isSurge) isResponse ? $done() : $done({}) 
     }
     return { isRequest, isQuanX, isSurge, notify, write, read, end }
 };

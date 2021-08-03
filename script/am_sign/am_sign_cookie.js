@@ -1,8 +1,8 @@
 const cookieName = 'Archermind'
 const cookieKey = 'jabin_cookie_am'
 const chavy = init()
-chavy.log(`[${cookieName}] 重写生效`)
-const cookieVal = $request.headers['Cookie'] || $response.headers['Set-Cookie']
+chavy.log(`[${cookieName}] 重写生效 `)
+const cookieVal = chavy.isRequest ? $request.headers['Cookie'] : $response.headers['Set-Cookie']
 if (cookieVal) {
   var saved = chavy.read(cookieKey)
   chavy.log(`[${cookieName}] 开始获取Cookie savedCookie: ${saved} cookie:${cookieVal}`)
@@ -15,6 +15,7 @@ if (cookieVal) {
   }
 }
 function init() {
+  const isRequest = typeof $request != "undefined"
   read = (key) => {
     return $prefs.valueForKey(key)
   }

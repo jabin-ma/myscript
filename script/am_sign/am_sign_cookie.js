@@ -1,7 +1,7 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  console.log(`request url -> ${request.url}  resp: ${response ? response.headers:'NULL'}`)
+  console.log(`request url -> ${$request.url}  resp: ${$response ? $response.headers:'NULL'}`)
   GetCookie($request,'Cookie')
 } else {
   GetCookie($response,'Set-Cookie')

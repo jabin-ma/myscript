@@ -10,6 +10,10 @@
     {
       "config": "3 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js, tag=b站银瓜子转硬币, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"
+    },
+    {
+      "config": "3 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.silver2coin.js, tag=自动打卡, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"
     }
   ]
 }

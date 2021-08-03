@@ -18,26 +18,26 @@ function GetCookie(context,headerName) {
         if ($nobyda.read(CookieKey) != CookieValue) {
           var cookie = $nobyda.write(CookieValue, CookieKey);
           if (!cookie) {
-            $nobyda.notify("更新" + headerName + "Cookie失败‼️", "", "");
+            $nobyda.notify(CookieName,headerName,"更新Cookie失败‼️\n"+ CookieValue);
           } else {
-            $nobyda.notify("更新" + headerName + "Cookie成功 🎉", "", "");
+            $nobyda.notify(CookieName,headerName,"更新Cookie成功 🎉\n"+ CookieValue);
           }
         }
       } else {
         var cookie = $nobyda.write(CookieValue, CookieKey);
         if (!cookie) {
-          $nobyda.notify("首次写入" + headerName + "Cookie失败‼️", "", "");
+          $nobyda.notify(CookieName,headerName,"首次写入Cookie失败‼️\n"+ CookieValue);
         } else {
-          $nobyda.notify("首次写入" + headerName + "Cookie成功 🎉", "", "");
+          $nobyda.notify(CookieName,headerName,"首次写入Cookie成功 🎉\n"+ CookieValue);
         }
       }
     } else {
       if (headerName != 'Cookie'){
-         $nobyda.notify("写入" + headerName + "Cookie失败‼️", "", "Cookie关键值缺失");
+         $nobyda.notify(CookieName,"写入" + headerName + "Cookie失败‼️", "Cookie关键值缺失");
       }
     }
   } else {
-      $nobyda.notify("写入" + headerName + "Cookie失败‼️", "", "配置错误, 无法读取请求头,");
+      $nobyda.notify(CookieName,"写入" + headerName + "Cookie失败‼️","配置错误, 无法读取请求头,");
   }
   $nobyda.end()
 }

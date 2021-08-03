@@ -1,9 +1,9 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  GetCookieFromRequest()
+  GetCookieFromRequest($request)
 } else {
-  GetCookieFromResp()
+  GetCookieFromResp($response)
 }
 
 

@@ -3,7 +3,7 @@
  * 
  */
 const jabin = init()
-const url = `https://wxq.am.com/kaoqin/doSign`;
+const url = `https://wxq.archermind.com/kaoqin/doSign`;
 const method = `POST`;
 const cookie = jabin.read('jabin_cookie_am')
 

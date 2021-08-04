@@ -12,7 +12,7 @@
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"
     },
     {
-      "config": "3 0 * * * am_sign/am_sign_task.js, tag=自动打卡, img-url=https://github.com/NobyDa/mini/raw/master/Color/airport.png,enabled=true",
+      "config": "1 1 1 1 1 am_sign/am_sign_task.js, tag=自动打卡, img-url=https://github.com/NobyDa/mini/raw/master/Color/airport.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin cookie获取"
     }
   ]

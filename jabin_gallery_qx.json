@@ -26,6 +26,9 @@
     {
       "config": "1 1 1 1 * demo/demo.js, tag=DEMO, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
+    },
+    {
+      "config": "1 1 1 1 * am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true"
     }
   ]
 }

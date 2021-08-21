@@ -22,6 +22,10 @@
     {
       "config": "15 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, tag=百度贴吧签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/tieba.png",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
+    },
+    {
+      "config": "1 1 1 1 * demo/demo.js, tag=DEMO, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     }
   ]
 }

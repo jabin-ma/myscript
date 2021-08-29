@@ -8,7 +8,7 @@
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "1 1 1 1 1 am_sign/am_sign_task.js, tag=自动打卡, img-url=https://github.com/NobyDa/mini/raw/master/Color/airport.png,enabled=true",
+      "config": "1 1 1 1 1 am_sign/am_sign_task.js, tag=WX签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Rookie.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {

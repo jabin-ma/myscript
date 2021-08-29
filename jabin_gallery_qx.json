@@ -4,7 +4,7 @@
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
   "task": [
     {
-      "config": "2 0 * * * bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "config": "2 0 * * * bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Bili.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
@@ -12,23 +12,23 @@
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "11 2 * * * https://raw.githubusercontent.com/jabin-ma/myscript/main/JD-DailyBonus/JD_DailyBonus.js, tag=京东签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/jd.png",
-      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
-    }, 
-    {
-      "config": "5 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js, tag=爱奇艺签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/iQIYI.png",
+      "config": "11 2 * * * https://raw.githubusercontent.com/jabin-ma/myscript/main/JD-DailyBonus/JD_DailyBonus.js, tag=京东签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "15 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, tag=百度贴吧签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/tieba.png",
+      "config": "5 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js, tag=爱奇艺签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/iQIYI.png",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "1 1 1 1 * demo/demo.js, tag=DEMO, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true",
+      "config": "15 8 * * * https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js, tag=百度贴吧签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/tieba.png",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "1 1 1 1 * am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/bilibili.png,enabled=true"
+      "config": "1 1 1 1 * demo/demo.js, tag=DEMO, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/heybox.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
+    },
+    {
+      "config": "1 1 1 1 * am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Orz-3.png,enabled=true"
     }
   ]
 }

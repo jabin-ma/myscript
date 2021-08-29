@@ -4,7 +4,7 @@
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
   "task": [
     {
-      "config": "2 0 * * * bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Bili.png,enabled=true",
+      "config": "2 0 * * * bilibili/bilibili.js, tag=b站签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {

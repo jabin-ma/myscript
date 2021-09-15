@@ -4,7 +4,7 @@
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
   "task": [
     {
-      "config": "1 1 1 1 1 am_sign/am_sign_task.js, tag=WX签到, img-url=https://camo.githubusercontent.com/d043ef62d700477991efa393a6bdda84d552d9479914132877b311e813b8945a/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f7765636861742e737667,enabled=true",
+      "config": "1 1 1 1 1 tasks/am_sign/am_sign_task.js, tag=WX签到, img-url=https://camo.githubusercontent.com/d043ef62d700477991efa393a6bdda84d552d9479914132877b311e813b8945a/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f7765636861742e737667,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
@@ -20,7 +20,7 @@
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/jabin_gallery_qx_cookie.conf, tag=Jabin附加组件"
     },
     {
-      "config": "1 1 1 1 * am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png,enabled=true"
+      "config": "1 1 1 1 * tasks/am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png,enabled=true"
     }
   ]
 }

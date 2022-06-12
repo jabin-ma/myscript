@@ -1,11 +1,11 @@
 {
-  "name": "自用订阅列表",
+  "name": "私有脚本列表",
   "description": "自用Gallery订阅",
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
   "task": [
     {
       "config": "1 1 1 1 1 tasks/am_sign/am_sign_task.js, tag=WX签到, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WeChat.png,enabled=true",
-      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/private_addons.conf, tag=脚本依赖"
+      "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/private_addons.conf, tag=私有脚本依赖"
     },
     {
       "config": "1 1 1 1 * tasks/am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png,enabled=true"

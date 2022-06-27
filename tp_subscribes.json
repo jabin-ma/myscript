@@ -4,7 +4,7 @@
   "icon": "https://avatars2.githubusercontent.com/u/53217160",
   "task": [
     {
-      "config": "1 1 1 1 1 tasks/am_sign/am_sign_task.js, tag=WX签到, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WeChat.png,enabled=true",
+      "config": "1 1 1 1 1 tasks/am_sign/am_sign_task.js, tag=TP, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WeChat.png,enabled=true",
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/tp_addons.conf, tag=三方脚本依赖"
     },
     {

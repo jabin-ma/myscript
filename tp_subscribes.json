@@ -8,6 +8,10 @@
       "addons": "https://raw.githubusercontent.com/jabin-ma/myscript/main/tp_addons.conf, tag=三方脚本依赖"
     },
     {
+      "config": "1 1 1 1 1 tasks/am_sign/am_sign_task.js, tag=B站去广告Addon, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WeChat.png,enabled=true",
+      "addons": "https://raw.githubusercontent.com/WSL33099/QuantumultX/main/Bilibili/Bilibili.conf, tag=B站去广告"
+    },
+    {
       "config": "1 1 1 1 * tasks/am_sign/am_sign_for_shortcuts.js, tag=返回参数给捷径, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/testflight.png,enabled=true"
     }
   ]
